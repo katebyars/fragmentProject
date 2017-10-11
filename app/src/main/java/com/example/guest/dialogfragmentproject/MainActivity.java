@@ -1,5 +1,6 @@
 package com.example.guest.dialogfragmentproject;
-import android.support.v4.app.FragmentManager;
+import android.nfc.Tag;
+import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,27 +20,27 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
 public class MainActivity extends AppCompatActivity {
-@Bind(R.id.moodButton)
-Button mMoodButton;
+    @Bind(R.id.moodButton)
+    Button moodButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        ButterKnife.bind(this); //if you just copy paste this code in, this WONT work. Why?
 
-        mMoodButton.setOnClickListener(new View.OnClickListener() {
 
+        moodButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    FragmentManager fm = getSupportFragmentManager();
-                    MoodDialogFragment moodDialogFragment = new MoodDialogFragment();
-                    moodDialogFragment.show(fm, "thing");
+                FragmentManager fm = getFragmentManager();
+                MoodDialogFragment moodDialogFragment = new MoodDialogFragment();
+                moodDialogFragment.show(fm, "Sample Fragment");
             }
-        });
 
+        });
     }
 }

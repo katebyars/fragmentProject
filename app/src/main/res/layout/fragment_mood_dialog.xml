@@ -78,7 +78,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/cancelButton"
                 android:layout_weight="1" />
-
         </RadioGroup>
     </LinearLayout>
 </LinearLayout>
